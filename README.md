@@ -55,25 +55,3 @@ const john: EmployeePerson = {
   name: "John",
   employeeId: 1234,
 };
-
-
-## ✅ Instructions & Submission Guidelines:
-
-- **Blog:** Write a blog post on **any 2** of the provided topics and include it in this `README.md`.
-- **Coding:**
-  - Place all your solutions in a single TypeScript file (e.g., [solution.ts](./solution.ts)).
-  - Use the exact function names provided in the problems.
-  - Your function's output must **exactly** match the sample output provided. This includes punctuation, spacing, and capitalization. Any deviation will result in marks being deducted. For instance, if the sample output is `'Name: John Doe, Age: 30'`, your function must return that exact string. A return value like `'name: John Doe, age: 30'` or `'Name: John Doe,Age: 30'` will be considered incorrect.
-  - Use meaningful names for all variables, functions, and classes.
-  - Do not include comments like “Problem 1” in your code.
-  - Do not include any `console.log` in your final code.
-- **Originality:** All work must be original. Plagiarism will result in a **zero**.
-- **Submission:** Submit a single public GitHub repository which will includes your [solution.ts](./solution.ts) file and the updated `README.md`.
-
-## 🕒 Assignment Deadlines:
-
-- **60 Marks:** November 18, 2025 – _before 11:59 PM_
-- **50 Marks:** November 19, 2025 – _before 11:59 PM_
-- **30 Marks:** After November 19, 2025
-
----
