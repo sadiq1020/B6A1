@@ -11,11 +11,10 @@ const formatValue = (input: string | number | boolean): string | number | boolea
   }
 };
 
-// ------------------------
 
-type Lengthwise = string | unknown[];
+type Length = string | unknown[];
 
-const getLength = (value: Lengthwise): number => {
+const getLength = (value: Length): number => {
   if (typeof value === 'string') {
     return value.length;
   } else if (Array.isArray(value)) {
@@ -23,8 +22,6 @@ const getLength = (value: Lengthwise): number => {
   }
   return 0;
 }
-
-// ------------------------
 
 class Person {
   name: string;
@@ -43,27 +40,23 @@ class Person {
 const person1 = new Person('John Doe', 30);
 const person2 = new Person('Alice', 25);
 
-// ------------------------ problem 4 *** rating must be 0-5, need to solve (Link: https://www.facebook.com/photo/?fbid=1373381364169131&set=gm.1501093231202058&idorvanity=1467232634588118)
 
-type ratedItem = {
+type RatedItem = {
   title: string;
   rating: number;
 }
 
-const filterByRating = (arrOfObjects: ratedItem[]): ratedItem[] => {
-  const filteredGoodRated = arrOfObjects.filter(obj => obj.rating >= 4);
-  return filteredGoodRated;
+const filterByRating = (arrOfObjects: RatedItem[]): RatedItem[] => {
+  arrOfObjects.forEach(obj => {
+    if (obj.rating < 0 || obj.rating > 5) {
+      throw new Error(`Rating is invalid for "${obj.title}". Rating must be between 0 and 5.`);
+    }
+  });
+
+  return arrOfObjects.filter(obj => obj.rating >= 4);
 }
 
-const books = [
-  { title: 'Book A', rating: 4.5 },
-  { title: 'Book B', rating: 3.2 },
-  { title: 'Book C', rating: 5.0 },
-];
 
-(filterByRating(books));
-
-// ------------------------ Problem 5
 
 type user = {
   id: number;
@@ -83,30 +76,28 @@ const users = [
   { id: 3, name: 'Rumi', email: 'rumi@example.com', isActive: true },
 ];
 
-// ------------------------ Problem 6 *** interface name has an issue
 
-interface IBook {
+interface Book {
   title: string;
   author: string;
   publishedYear: number;
   isAvailable: boolean;
 }
 
-const printBookDetails = (book: IBook): string => {
+const printBookDetails = (book: Book): string => {
 
   const availability = book.isAvailable ? 'Yes' : 'No';
 
   return `Title: ${book.title}, Author: ${book.author}, Published: ${book.publishedYear}, Available: ${availability}`;
 }
 
-const myBook: IBook = {
+const myBook: Book = {
   title: 'The Great Gatsby',
   author: 'F. Scott Fitzgerald',
   publishedYear: 1925,
   isAvailable: false,
 };
 
-// ------------------------ Problem 7
 
 type ElementOfArray = number | string;
 
@@ -119,7 +110,7 @@ const getUniqueValues = (array1: ElementOfArray[], array2: ElementOfArray[]): El
       const key = String(arr[i]);
       if (!seen[key]) {
         seen[key] = true;
-        result[result.length] = arr[i]; // avoids push() if you want to be strict
+        result[result.length] = arr[i];
       }
     }
   };
@@ -132,9 +123,7 @@ const getUniqueValues = (array1: ElementOfArray[], array2: ElementOfArray[]): El
 
 const array1 = [1, 2, 3, 4, 5];
 const array2 = [3, 4, 5, 6, 7];
-// console.log(getUniqueValues(array1, array2));
 
-// ------------------------ Problem 8
 
 const products = [
   { name: 'Pen', price: 10, quantity: 2 },
@@ -165,5 +154,3 @@ const calculateTotalPrice = (products: Product[]): number => {
   return totalPrice;
 }
 
-
-console.log(calculateTotalPrice(products));
