@@ -1,38 +1,3 @@
-/*
-- This solution.ts file is an example; replace it with your own code.
-- Use the same function names and parameter names as in the problem statement.
-- Write only the code inside the function bodies and return the result.
-- Do not use any console.log statements or comments.
-*/
-
-// const getSwallowVelocity = (type: 'african' | 'european'): string => {
-//   if (type === 'african') {
-//     return 'Roughly 11 meters per second.';
-//   }
-//   return "I... I don't know that!";
-// };
-
-// const isCatLiquid = (isAsleep: boolean, containerShape: string): boolean => {
-//   return isAsleep && containerShape !== 'none';
-// };
-
-// class Wizard {
-//   name: string;
-//   favoriteSpell: string;
-
-//   constructor(name: string, favoriteSpell: string) {
-//     this.name = name;
-//     th
-//       .is.favoriteSpell = favoriteSpell;
-//   }
-
-//   castSpell(): string {
-//     return `${this.name} casts ${this.favoriteSpell}!`;
-//   }
-// }
-
-//------------------------
-
 const formatValue = (input: string | number | boolean): string | number | boolean => {
   if (typeof input === 'string') {
     const stringToUpperCase = input.toUpperCase();
@@ -143,13 +108,13 @@ const myBook: IBook = {
 
 // ------------------------ Problem 7
 
-type ArrayElement = number | string;
+type ElementOfArray = number | string;
 
-const getUniqueValues = (a1: ArrayElement[], a2: ArrayElement[]): ArrayElement[] => {
-  const result: ArrayElement[] = [];
+const getUniqueValues = (array1: ElementOfArray[], array2: ElementOfArray[]): ElementOfArray[] => {
+  const result: ElementOfArray[] = [];
   const seen: { [key: string]: boolean } = {};
 
-  const addValues = (arr: ArrayElement[]) => {
+  const addValues = (arr: ElementOfArray[]) => {
     for (let i = 0; i < arr.length; i++) {
       const key = String(arr[i]);
       if (!seen[key]) {
@@ -159,8 +124,8 @@ const getUniqueValues = (a1: ArrayElement[], a2: ArrayElement[]): ArrayElement[]
     }
   };
 
-  addValues(a1);
-  addValues(a2);
+  addValues(array1);
+  addValues(array2);
 
   return result;
 };
@@ -182,7 +147,7 @@ type Product = {
   name: string;
   price: number;
   quantity: number;
-  discount?: number; // 0 to 100 needs to be handled? 
+  discount?: number;
 }
 
 const calculateTotalPrice = (products: Product[]): number => {
