@@ -17,10 +17,10 @@ type Length = string | unknown[];
 const getLength = (value: Length): number => {
   if (typeof value === 'string') {
     return value.length;
-  } else if (Array.isArray(value)) {
+  } if (Array.isArray(value)) {
     return value.length;
   }
-  return 0;
+  throw new Error('Invalid type. Expected a string or an array.');
 }
 
 class Person {
